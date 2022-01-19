@@ -1,7 +1,7 @@
 function computerPlay(){
     // The computer randomly chooses between rock, paper, scissors
     randomDecision = Math.floor(Math.random() * 3);
-     if(randomDecision == 0){
+    if(randomDecision == 0){
          return "rock";
      } else if (randomDecision == 1){
          return "paper";
@@ -12,7 +12,7 @@ function computerPlay(){
 }
 
 function playRound(playerSelection, computerSelection){
-    // this function plays a rounf of rock , paper, scissors
+    // this function plays a round of rock , paper, scissors
     playerSelection = playerSelection.toLowerCase().trim();
     
     console.log("The player chose: " + playerSelection + " the computer chose: " + computerSelection);
