@@ -86,6 +86,8 @@ function game(){
         console.log("Whooah! All rounds resulted in a tie, that is some weird luck");
     } else if(promptErrors == 5){
         console.log("You got to pay more attention on what you type. Focus bro!");
+    } else if( computerScore == playerScore){
+        console.log("Its a tie!! Everyone gets a participation trophy!!!");
     }
 
 }
