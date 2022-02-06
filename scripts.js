@@ -40,14 +40,7 @@ function computerPlay(){
 
 function playRound(playerSelection, computerSelection){
     // this function plays a round of rock , paper, scissors
-
-
     playerSelection = playerSelection.toLowerCase().trim();
-
-    const selection = document.createElement('h3');
-    selection.classList.add('selection');
-    selection.textContent = "The player chose: " + playerSelection + ", the computer chose: " + computerSelection;
-    container.appendChild(selection);
     
     if(playerSelection == "rock"){
         if(computerSelection == "rock"){
@@ -59,43 +52,39 @@ function playRound(playerSelection, computerSelection){
         } else if (computerSelection == "scissors"){
             content.textContent =  "Congrats champ! rock beats scissors";
             return "loose";
-        } else {
-            content.textContent =  "Some funky business is going on, try again";
-            return "error";
-        }   
-    } else if(playerSelection == "paper"){
-        if(computerSelection == "rock"){
-            content.textContent =  "Victory! paper beats rock";
-            return "win";
-        } else if (computerSelection == "paper"){
-            content.textContent =  "It's a draw mate!";
-            return "draw"
-        } else if (computerSelection == "scissors"){
-            content.textContent =  "You lost :( your paper got destroyed by the scissors";
-            return "loose";
-        } else {
-            content.textContent =  "Some funky business is going on, try again";
-            return "error";
         } 
-    } else if(playerSelection == "scissors"){
-        if(computerSelection == "rock"){
-            content.textContent =  "The rock crushed your scissors, its a shame";
-            return "loose";
-        } else if (computerSelection == "paper"){
-            content.textContent =  "You are on fire!!! scissors beat paper!!!";
-            return "win";
-        } else if (computerSelection == "scissors"){
-            content.textContent =  "Seems like a draw. Play with scissors and you will get cut";
-            return "draw";
-        } else {
-            content.textContent =  "Some funky business is going on, try again";
-            return "error";
-        } 
-    } else {
-        content.textContent =  "Sorry, did not understand! choose between 'rock', 'paper' or 'scissors' ";
-        return "error";
-    }
-    container.appendChild(content);
+        } else if(playerSelection == "paper"){
+            if(computerSelection == "rock"){
+                content.textContent =  "Victory! paper beats rock";
+                return "win";
+            } else if (computerSelection == "paper"){
+                content.textContent =  "It's a draw mate!";
+                return "draw"
+            } else if (computerSelection == "scissors"){
+                content.textContent =  "You lost :( your paper got destroyed by the scissors";
+                return "loose";
+            }
+        } else if(playerSelection == "scissors"){
+            if(computerSelection == "rock"){
+                content.textContent =  "The rock crushed your scissors, its a shame";
+                return "loose";
+            } else if (computerSelection == "paper"){
+                content.textContent =  "You are on fire!!! scissors beat paper!!!";
+                return "win";
+            } else if (computerSelection == "scissors"){
+                content.textContent =  "Seems like a draw. Play with scissors and you will get cut";
+                return "draw";
+            }
+        }
+
+}
+
+function createText(text){
+    // Create the text for the messages in the DOM
+    const p = document.createElement('p');
+    p.textContent = text;
+
+    return p;
 }
 
 function game(selection){
