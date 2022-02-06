@@ -41,36 +41,27 @@ function playRound(playerSelection, computerSelection){
     let log = ''
     if(playerSelection == "rock"){
         if(computerSelection == "rock"){
-            content.textContent = "It's a draw mate!";
-            log = "draw";
+            log = "It's a draw mate!";
         } else if (computerSelection == "paper"){
-            content.textContent =  "The computer won, paper beats rock";
-            log =  "loose";
+            log =  "The computer won, paper beats rock";
         } else if (computerSelection == "scissors"){
-            content.textContent =  "Congrats champ! rock beats scissors";
-            log =  "win";
+            log =  "Congrats champ! rock beats scissors";
         } 
         } else if(playerSelection == "paper"){
             if(computerSelection == "rock"){
-                content.textContent =  "Victory! paper beats rock";
-                log =  "win";
+                log =  "Victory! paper beats rock";
             } else if (computerSelection == "paper"){
-                content.textContent =  "It's a draw mate!";
-                log =  "draw"
+                log =  "It's a draw mate!";
             } else if (computerSelection == "scissors"){
-                content.textContent =  "You lost :( your paper got destroyed by the scissors";
-                log =  "loose";
+                log =  "You lost :( your paper got destroyed by the scissors";
             }
         } else if(playerSelection == "scissors"){
             if(computerSelection == "rock"){
-                content.textContent =  "The rock crushed your scissors, its a shame";
-                log =  "loose";
+                log =  "The rock crushed your scissors, its a shame";
             } else if (computerSelection == "paper"){
-                content.textContent =  "You are on fire!!! scissors beat paper!!!";
-                log =  "win";
+                log =  "You are on fire!!! scissors beat paper!!!";
             } else if (computerSelection == "scissors"){
-                content.textContent =  "Seems like a draw. Play with scissors and you will get cut";
-                log =  "draw";
+                log =  "Seems like a draw. Play with scissors and you will get cut";
             }
         }
 
@@ -95,11 +86,11 @@ function game(selection){
     
     let round = playRound(playerSelection, computerSelection);
         
-    if(round == "win" || round == "win" || round == "win"){
+    if(round == "Congrats champ! rock beats scissors" || round == "Victory! paper beats rock" || round == "You are on fire!!! scissors beat paper!!!"){
         playerScore++;
-    } else if( round == "loose" ){
+    } else if( round == "The computer won, paper beats rock" || round == "You lost :( your paper got destroyed by the scissors" || round == "The rock crushed your scissors, its a shame" ){
         computerScore++;
-    } else if(round == "draw"){
+    } else if(round == "It's a draw mate!" || round == "Seems like a draw. Play with scissors and you will get cut" ){
         ties++;
     } 
     
