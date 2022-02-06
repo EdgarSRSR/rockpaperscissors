@@ -1,0 +1,101 @@
+html{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(0, 0, 0);
+    color:rgb(24, 205, 0);
+    font-family: "Audiowide", sans-serif;
+    font-weight: 400;
+    
+    
+}
+
+.heading{
+    text-align: center;
+    margin-left: 50px;
+    font-size: 55px;
+    font-weight: 400;
+}
+
+#container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+    
+}
+
+.resultMessage{
+    align-self: center;
+}
+
+.scoreBoard{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+    font-size: 30px;
+    
+}
+
+.board{
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    padding: 50px;
+}
+
+.scorePlayer, .scoreComputer, .ties{
+    align-self: center;
+}
+
+.resultMessage{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+}
+
+#btn-rock,#btn-paper,#btn-scissors{
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin: 10px;
+}
+
+button{
+    background-color: rgb(24, 205, 0);
+    color: rgb(0,0,0);
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: "Audiowide", sans-serif;
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.roundInfo{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+p{
+    margin-bottom: 10px;
+    font-size: 25px;
+    font-weight: 400;
+}
+

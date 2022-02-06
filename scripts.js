@@ -64,7 +64,6 @@ function playRound(playerSelection, computerSelection){
                 log =  "Seems like a draw. Play with scissors and you will get cut";
             }
         }
-
         return log;
 
 }
@@ -74,7 +73,6 @@ function createText(text){
     const p = document.createElement('p');
     p.classList.add('p');
     p.textContent = text;
-
     return p;
 }
 
@@ -109,15 +107,3 @@ function game(selection){
         resultMessage.textContent = "Its a tie!! Everyone gets a participation trophy!!!";
     } 
 }
-
-
-
-
-
-//const playerSelection = "paper ";
-//const computerSelection = computerPlay();
-//console.log(playRound(playerSelection, computerSelection));
-
-//game();
-
-
