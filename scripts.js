@@ -1,3 +1,7 @@
+// show the results of the game 
+const container = document.querySelector('#container');
+const content = document.createElement('h1');
+content.classList.add('content');
 
 
 function computerPlay(){
@@ -15,99 +19,145 @@ function computerPlay(){
 
 function playRound(playerSelection, computerSelection){
     // this function plays a round of rock , paper, scissors
+
+
     playerSelection = playerSelection.toLowerCase().trim();
+
+    const selection = document.createElement('h3');
+    selection.classList.add('selection');
+    selection.textContent = "The player chose: " + playerSelection + ", the computer chose: " + computerSelection;
+    container.appendChild(selection);
     
-    console.log("The player chose: " + playerSelection + " the computer chose: " + computerSelection);
     if(playerSelection == "rock"){
         if(computerSelection == "rock"){
-            return "It's a draw mate!";
+            content.textContent = "It's a draw mate!";
+            return "draw";
         } else if (computerSelection == "paper"){
-            return "The computer won, paper beats rock";
+            content.textContent =  "The computer won, paper beats rock";
+            return "win";
         } else if (computerSelection == "scissors"){
-            return "Congrats champ! rock beats scissors";
+            content.textContent =  "Congrats champ! rock beats scissors";
+            return "loose";
         } else {
-            return "Some funky business is going on, try again";
+            content.textContent =  "Some funky business is going on, try again";
+            return "error";
         }   
     } else if(playerSelection == "paper"){
         if(computerSelection == "rock"){
-            return "Victory! paper beats rock";
+            content.textContent =  "Victory! paper beats rock";
+            return "win";
         } else if (computerSelection == "paper"){
-            return "It's a draw mate!";
+            content.textContent =  "It's a draw mate!";
+            return "draw"
         } else if (computerSelection == "scissors"){
-            return "You lost ;( your paper got destroyed by the scissors";
+            content.textContent =  "You lost :( your paper got destroyed by the scissors";
+            return "loose";
         } else {
-            return "Some funky business is going on, try again";
+            content.textContent =  "Some funky business is going on, try again";
+            return "error";
         } 
     } else if(playerSelection == "scissors"){
         if(computerSelection == "rock"){
-            return "The rock crushed your scissors, its a shame";
+            content.textContent =  "The rock crushed your scissors, its a shame";
+            return "loose";
         } else if (computerSelection == "paper"){
-            return "You are on fire!!! scissors beat paper!!!";
+            content.textContent =  "You are on fire!!! scissors beat paper!!!";
+            return "win";
         } else if (computerSelection == "scissors"){
-            return "Seems like a draw. Play with scissors and you will get cut";
+            content.textContent =  "Seems like a draw. Play with scissors and you will get cut";
+            return "draw";
         } else {
-            return "Some funky business is going on, try again";
+            content.textContent =  "Some funky business is going on, try again";
+            return "error";
         } 
     } else {
-        return "Sorry, did not understand! choose between 'rock', 'paper' or 'scissors' ";
+        content.textContent =  "Sorry, did not understand! choose between 'rock', 'paper' or 'scissors' ";
+        return "error";
     }
+    container.appendChild(content);
 }
 
 function game(){
-    // this function plays five rounds of rock, paper, scissors and anounces a winner
-    let computerScore = 0;
-    let playerScore = 0;
-    let ties = 0;
-    let promptErrors = 0;
+     // this function plays five rounds of rock, paper, scissors and anounces a winner
+     let computerScore = 0;
+     let playerScore = 0;
+     let ties = 0;
+     let promptErrors = 0;
 
-    //for(let i = 0; i < 5; i++){
-        let playerSelection = window.prompt("Pick your choice ");
+    
+     const btnRock = document.querySelector('#btn-rock');
+     const btnPaper = document.querySelector('#btn-paper');
+     const btnScissors = document.querySelector('#btn-scissors');
+    for(let i = 0; i < 5; i++){
+
+
+        
         let computerSelection = computerPlay();
-        let game = playRound(playerSelection, computerSelection);
+        
+
+        // Select a button and play
+        btnRock.addEventListener('click', function(){
+            let playerSelection = "rock";
+            let game = playRound(playerSelection, computerSelection);
+            
+        });
+
+        
+        btnPaper.addEventListener('click', function(){
+
+            let playerSelection = "paper";
+            let game = playRound(playerSelection, computerSelection);
+        });
+
+        
+        btnScissors.addEventListener('click', function(){
+            let playerSelection ="scissors"
+            let game = playRound(playerSelection, computerSelection);
+        });
+        
         console.log(game);
-        if(game == "You are on fire!!! scissors beat paper!!!" || game == "Victory! paper beats rock" 
-            || game == "Congrats champ! rock beats scissors" ){
+        if(game == "win"){
                 playerScore++;
-        } else if( game == "The computer won, paper beats rock" || game == "The rock crushed your scissors, its a shame" 
-            || game == "You lost ;( your paper got destroyed by the scissors"){
+        } else if( game == "loose" ){
                 computerScore++;
-        } else if(game == "It's a draw mate!" || game == "Seems like a draw. Play with scissors and you will get cut"){
+        } else if(game == "draw"){
                 ties++;
         } else {
                 promptErrors++;
         }
-    //}
+    }
 
-    console.log("Your score: " + playerScore +" The computer's score: " + computerScore + " number of ties: " + ties);
+    const finalScore = document.createElement('h2');
+    finalScore.classList.add('finalScore');
+    finalScore.textContent = "Your score: " + playerScore +" The computer's score: " + computerScore + " number of ties: " + ties
+    container.appendChild(finalScore);
+
+    const result = document.createElement('h1');
+    result.classList.add('result');
+    container.appendChild(result);
 
     if(playerScore > computerScore){
-        console.log("You are a hero and a real human being! You win champ");
+        finalScore = "You are a hero and a real human being! You win champ";
     } else if(computerScore > playerScore) {
-        console.log("The machines win dude, prepared to get plugged into the Matrix");
+        finalScore = "The machines win dude, prepared to get plugged into the Matrix";
     } else if(ties == 5){
-        console.log("Whooah! All rounds resulted in a tie, that is some weird luck");
+        finalScore = "Whooah! All rounds resulted in a tie, that is some weird luck";
     } else if(promptErrors == 5){
-        console.log("You got to pay more attention on what you type. Focus bro!");
+        finalScore = "You got to pay more attention on what you type. Focus bro!";
     } else if( computerScore == playerScore){
-        console.log("Its a tie!! Everyone gets a participation trophy!!!");
+        finalScore = "Its a tie!! Everyone gets a participation trophy!!!";
     }
 
 }
 
-const btnRock = document.querySelector('#btn-rock');
-btnRock.addEventListener('click', function(){playRound('rock',computerPlay())});
 
-const btnPaper = document.querySelector('#btn-paper');
-btnPaper.addEventListener('click', function(){playRound("paper", computerPlay())} );
 
-const btnScissors = document.querySelector('#btn-scissors');
-btnScissors.addEventListener('click', function(){playRound('scissors',computerPlay())});
 
 
 //const playerSelection = "paper ";
 //const computerSelection = computerPlay();
 //console.log(playRound(playerSelection, computerSelection));
 
-//game();
+game();
 
 

@@ -8,12 +8,30 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <h1>Rock, Paper, Scissors</h1>
-    <h1>Piedra, Papel o Tijeras</h1>
-    <button id="btn-rock">Rock</button>
-    <button id="btn-paper">Paper</button>
-    <button id="btn-scissors">Scissors</button>
-    <div id="container"></div>
-    
+    <h1 class="heading">Rock, Paper, Scissors</h1>
+    <h1 class="heading">Piedra, Papel o Tijeras</h1>
+    <div id="container">
+        <div class="scoreBoard">
+            <div class="scorePlayer">0</div>
+            <div class="margin">-</div>
+            <div class="scoreComputer">0</div>
+        </div>
+        <div class="resultMessage"></div>
+        <div class="buttons">
+            <button id="btn-rock">Rock</button>
+            <button id="btn-paper">Paper</button>
+            <button id="btn-scissors">Scissors</button>
+        </div>
+        <div class="roundInfo">
+            <div class="roundplayer">
+                <h2>Player</h2>
+                <div class="playerSelection"></div>
+            </div>
+            <div class="roundComputer">
+                <h2>Computer</h2>
+                <div class="computerSelection"></div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
