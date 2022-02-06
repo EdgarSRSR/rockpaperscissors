@@ -3,6 +3,7 @@ const buttons = document.querySelectorAll('button');
 const resultMessage = document.querySelector('.resultMessage');
 const scorePlayer = document.querySelector('.scorePlayer');
 const scoreComputer = document.querySelector('.scoreComputer');
+const scoreTies = document.querySelector('.ties');
 const divPlayerSelection = document.querySelector('#playerSelection');
 const divComputerSelection = document.querySelector('#computerSelection');
 
@@ -44,10 +45,10 @@ function playRound(playerSelection, computerSelection){
             log = "draw";
         } else if (computerSelection == "paper"){
             content.textContent =  "The computer won, paper beats rock";
-            log =  "win";
+            log =  "loose";
         } else if (computerSelection == "scissors"){
             content.textContent =  "Congrats champ! rock beats scissors";
-            log =  "loose";
+            log =  "win";
         } 
         } else if(playerSelection == "paper"){
             if(computerSelection == "rock"){
@@ -94,7 +95,7 @@ function game(selection){
     
     let round = playRound(playerSelection, computerSelection);
         
-    if(round == "win"){
+    if(round == "win" || round == "win" || round == "win"){
         playerScore++;
     } else if( round == "loose" ){
         computerScore++;
@@ -104,19 +105,18 @@ function game(selection){
     
     scorePlayer.textContent = playerScore;
     scoreComputer.textContent = computerScore;
+    scoreTies.textContent = ties;
     resultMessage.textContent = round;
     divPlayerSelection.appendChild(createText(playerSelection));
     divComputerSelection.appendChild(createText(computerSelection));
 
-    if(playerScore > computerScore){
-        finalScore = "You are a hero and a real human being! You win champ";
-    } else if(computerScore > playerScore) {
-        finalScore = "The machines win dude, prepared to get plugged into the Matrix";
+    if(playerScore == 5){
+        resultMessage.textContent = "You are a hero and a real human being! You win champ";
+    } else if(computerScore == 5) {
+        resultMessage.textContent ="The machines win dude, prepared to get plugged into the Matrix";
     } else if(ties == 5){
-        finalScore = "Whooah! All rounds resulted in a tie, that is some weird luck";
-    } else if( computerScore == playerScore){
-        finalScore = "Its a tie!! Everyone gets a participation trophy!!!";
-    }
+        resultMessage.textContent = "Its a tie!! Everyone gets a participation trophy!!!";
+    } 
 }
 
 
