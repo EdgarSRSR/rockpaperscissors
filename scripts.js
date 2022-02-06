@@ -1,3 +1,24 @@
+const buttons = document.querySelectorAll('button');
+const resultMessage = document.querySelector('.resultMessage');
+const scorePlayer = document.querySelector('.scorePlayer');
+const scoreComputer = document.querySelector('.scoreComputer');
+const playerSelection = document.querySelector('.playerSelection');
+const computerSelection = document.querySelector('.computerSelection');
+
+let computerScore = 0;
+let playerScore = 0;
+
+// start game when user clicks button
+buttons.forEach((button)=>
+    button.addEventListener('click', ()=>{
+        if(playerScore >= 5 || computerScore >= 5){
+            return;
+        }
+        game(button.value);
+    })
+);
+
+
 // show the results of the game 
 const container = document.querySelector('#container');
 const content = document.createElement('h1');
@@ -77,10 +98,11 @@ function playRound(playerSelection, computerSelection){
     container.appendChild(content);
 }
 
-function game(){
+function game(selection){
      // this function plays five rounds of rock, paper, scissors and anounces a winner
-     let computerScore = 0;
-     let playerScore = 0;
+
+     console.log(selection);
+     /*
      let ties = 0;
      let promptErrors = 0;
 
@@ -125,6 +147,7 @@ function game(){
         } else {
                 promptErrors++;
         }
+        
     }
 
     const finalScore = document.createElement('h2');
@@ -146,7 +169,7 @@ function game(){
         finalScore = "You got to pay more attention on what you type. Focus bro!";
     } else if( computerScore == playerScore){
         finalScore = "Its a tie!! Everyone gets a participation trophy!!!";
-    }
+    }*/
 
 }
 
@@ -158,6 +181,6 @@ function game(){
 //const computerSelection = computerPlay();
 //console.log(playRound(playerSelection, computerSelection));
 
-game();
+//game();
 
 
