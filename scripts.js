@@ -1,3 +1,5 @@
+
+
 function computerPlay(){
     // The computer randomly chooses between rock, paper, scissors
     randomDecision = Math.floor(Math.random() * 3);
@@ -58,7 +60,7 @@ function game(){
     let ties = 0;
     let promptErrors = 0;
 
-    for(let i = 0; i < 5; i++){
+    //for(let i = 0; i < 5; i++){
         let playerSelection = window.prompt("Pick your choice ");
         let computerSelection = computerPlay();
         let game = playRound(playerSelection, computerSelection);
@@ -74,7 +76,7 @@ function game(){
         } else {
                 promptErrors++;
         }
-    }
+    //}
 
     console.log("Your score: " + playerScore +" The computer's score: " + computerScore + " number of ties: " + ties);
 
@@ -92,10 +94,20 @@ function game(){
 
 }
 
+const btnRock = document.querySelector('#btn-rock');
+btnRock.addEventListener('click', function(){playRound('rock',computerPlay())});
+
+const btnPaper = document.querySelector('#btn-paper');
+btnPaper.addEventListener('click', function(){playRound("paper", computerPlay())} );
+
+const btnScissors = document.querySelector('#btn-scissors');
+btnScissors.addEventListener('click', function(){playRound('scissors',computerPlay())});
+
+
 //const playerSelection = "paper ";
 //const computerSelection = computerPlay();
 //console.log(playRound(playerSelection, computerSelection));
 
-game();
+//game();
 
 
